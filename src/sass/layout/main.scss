@@ -1,0 +1,19 @@
+.main {
+  &__ListChooseBar {
+    margin: 1rem 5rem;
+    display: flex;
+    justify-content: center;
+
+    li {
+      list-style: none;
+      margin: 0 2rem;
+    }
+  }
+
+  &__List {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
+    justify-items: center;
+    grid-row-gap: 3rem;
+  }
+}

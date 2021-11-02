@@ -1,0 +1,41 @@
+.header {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 3.6rem;
+
+  &__logo {
+    display: inline-block;
+    margin: 0 2rem;
+  }
+
+  &__welcomeBar {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+
+    span {
+      font-size: 2.4rem;
+      margin: 0 2rem;
+    }
+
+    img {
+      width: 5rem;
+      border-radius: 50%;
+    }
+  }
+
+  &__navBar {
+    font-size: 2.4rem;
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+
+    li {
+      flex: 1;
+      padding: 0 1rem;
+    }
+  }
+}
