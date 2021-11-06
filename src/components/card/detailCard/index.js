@@ -7,6 +7,9 @@ import Popup from "../../popup";
 const renderDetail = data => {
   let imgCount = Object.keys(data.Picture).length;
   let imgArray = [];
+  if (imgCount <= 2) {
+    imgArray.push({ url: data.Picture[`PictureUrl${1}`], alt: data.Picture[`PictureDescription${1}`] });
+  }
   if (imgCount > 2 && imgCount % 2 === 0) {
     for (let i = 1; i <= imgCount / 2; i++) {
       imgArray.push({ url: data.Picture[`PictureUrl${i}`], alt: data.Picture[`PictureDescription${i}`] });
@@ -44,8 +47,9 @@ const DetailCard = props => {
 
   useEffect(() => {
     dispatch(action.popWindowShowCreator(null));
+    console.log(props);
     const fetchData = async () => {
-      const response = await PTX.get(`/v2/Tourism/ScenicSpot?$filter=ID%20eq%20'C1_376480000A_000192'&$top=5&$format=JSON`);
+      const response = await PTX.get(`/v2/Tourism/ScenicSpot?$filter=ID%20eq%20'${props.match.params.id}'&$format=JSON`);
 
       setData(response.data[0]);
       console.log(response.data[0]);

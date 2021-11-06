@@ -2,7 +2,7 @@ import React from "react";
 import { Router, Route, Link } from "react-router-dom";
 
 import SpotPage from "./spotPage";
-import DetailCard from "./spotPage/detailCard";
+import DetailCard from "../../components/card/detailCard";
 
 class Main extends React.Component {
   render() {

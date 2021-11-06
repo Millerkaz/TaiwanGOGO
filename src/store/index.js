@@ -1,5 +1,6 @@
 import { PTX } from "../API";
 import { combineReducers } from "redux";
+import history from "../helper/history";
 
 const city = {
   臺北市: "Taipei",
@@ -33,6 +34,10 @@ const FETCH_ROUTE_BUS_DATA = "FETCH_ROUTE_BUS_DATA";
 
 const POP_SHOW = "POP_SHOW";
 const POP_HIDE = "POP_HIDE";
+
+const FORM_SEARCH_SUBMIT = "FORM_SEARCH_SUBMIT";
+
+const PAGE_BAR_NUMBER_CHANGE = "PAGE_BAR_NUMBER_CHANGE";
 
 //*---------------- Action ---------------- *//
 export const action = {
@@ -75,6 +80,77 @@ export const action = {
       payload: null,
     };
   },
+
+  //-----------------------------------------//
+  //get search data
+
+  formSearchSubmitCreator: ({ term, type, city }) => {
+    if (type === "景點") {
+      switch (city) {
+        case "不分縣市":
+          return async dispatch => {
+            history.push("/spot");
+            const response = await PTX.get("/v2/Tourism/ScenicSpot", {
+              params: {
+                $filter: `${term ? `contains(Name,'${term}')` : ""}`,
+                $format: "JSON",
+                $top: 100,
+              },
+            });
+
+            let dataForPageObj = pageCalcHelper(response.data);
+
+            dispatch({
+              type: FORM_SEARCH_SUBMIT,
+              payload: response.data.length === 0 ? [] : dataForPageObj,
+            });
+          };
+
+        default:
+          return async dispatch => {
+            history.push("/spot");
+            const response = await PTX.get("/v2/Tourism/ScenicSpot", {
+              params: {
+                $filter: `${term ? `contains(Name,'${term}') and` : ``} (contains(city,'${city}') or contains(Address,'${city}'))`,
+                $format: "JSON",
+              },
+            });
+
+            let dataForPageObj = pageCalcHelper(response.data);
+
+            dispatch({
+              type: FORM_SEARCH_SUBMIT,
+              payload: response.data.length === 0 ? [] : dataForPageObj,
+            });
+          };
+      }
+    }
+
+    return { type: FORM_SEARCH_SUBMIT, payload: "can't find" };
+  },
+
+  //-----------------------------------------//
+
+  pageBarNumberChangeCreator: page => {
+    return {
+      type: PAGE_BAR_NUMBER_CHANGE,
+      payload: page,
+    };
+  },
+};
+
+const pageCalcHelper = responseDataArray => {
+  const cardPerPage = 20;
+  let page = !responseDataArray.length % cardPerPage === 0 ? responseDataArray.length / 20 + 1 : responseDataArray.length / 20;
+
+  let dataForPageObj = {};
+  for (let i = 1; i <= page; i++) {
+    //62筆 = 0~19 20~39 40~59 60~62
+    dataForPageObj[i] = responseDataArray.slice((i - 1) * cardPerPage, i * cardPerPage);
+  }
+
+  console.log(dataForPageObj);
+  return dataForPageObj;
 };
 
 //*---------------- Reducer ---------------- *//
@@ -107,8 +183,27 @@ const popWindowReducer = (preState = { show: false, component: null }, action) =
   }
 };
 
+const formSearchSubmitReducer = (preState = null, action) => {
+  switch (action.type) {
+    case FORM_SEARCH_SUBMIT:
+      return { ...action.payload };
+
+    default:
+      return preState;
+  }
+};
+
+const pageBarNumberChange = (preState = 1, action) => {
+  if (action.type === PAGE_BAR_NUMBER_CHANGE) {
+    return action.payload;
+  }
+  return preState;
+};
+
 export const reducers = combineReducers({
   oneBus: oneBusDataReducer,
   fullBusRoute: fullBusRouteReducer,
   popWindow: popWindowReducer,
+  searchData: formSearchSubmitReducer,
+  nowPage: pageBarNumberChange,
 });

@@ -1,21 +1,18 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import SearchList from "../../../components/searchList/searchList";
 import { action } from "../../../store";
 import history from "../../../helper/history";
+
+import SearchBar from "../../../components/searchBar/searchBar";
 
 const Homepage = props => {
   const dispatch = useDispatch();
 
   return (
     <div>
-      <div
-        onClick={() => {
-          dispatch(action.popWindowShowCreator(null));
-          history.push("/spot/C1_315080500H_000068");
-        }}
-      >
-        123
-      </div>
+      <SearchBar />
+      <SearchList />
     </div>
   );
 };
