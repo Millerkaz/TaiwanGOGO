@@ -1,18 +1,14 @@
 import axios from "axios";
 import jsSHA from "jssha";
 
-export const holoApi = axios.create({
-  baseURL: "https://api.holotools.app/v1",
-});
-
 export const PTX = axios.create({
   baseURL: "https://ptx.transportdata.tw/MOTC",
   headers: GetAuthorizationHeader(),
 });
 
 function GetAuthorizationHeader() {
-  var AppID = "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF";
-  var AppKey = "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF";
+  var AppID = "9859ce5f77634490a0cf027c48bbc63b";
+  var AppKey = "AMkEt0QA-eE3QlBBIcb_gv2A5ck";
 
   var GMTString = new Date().toGMTString();
   var ShaObj = new jsSHA("SHA-1", "TEXT");

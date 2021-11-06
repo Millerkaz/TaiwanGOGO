@@ -7,7 +7,6 @@ import history from "./helper/history";
 
 import Header from "./views/Header";
 import Main from "./views/Main";
-import Popup from "./views/Popup";
 
 import "./sass/index.scss";
 
@@ -17,7 +16,6 @@ const App = props => {
       <Router history={history}>
         <Header />
         <Main />
-        <Popup />
       </Router>
     </div>
   );
