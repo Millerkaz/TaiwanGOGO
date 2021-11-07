@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { PTX } from "../../../API";
-import { action } from "../../../store";
-import { useDispatch } from "react-redux";
+import LeafletMap from "../../leafletMap/leafletMap";
 import Popup from "../../popup";
 
 const renderDetail = data => {
@@ -16,6 +14,7 @@ const renderDetail = data => {
     }
   }
 
+  console.log(data);
   return (
     <div className="detailCard">
       <div className="detailCard__imgList">
@@ -24,10 +23,22 @@ const renderDetail = data => {
         ))}
       </div>
       <div className="detailCard__imgArrowBar">{imgArray.length > 1 && <div>icon</div>}</div>
-      <div className="detailCard__description">
-        <h4>{data.Name}</h4>
-        <p>{data.DescriptionDetail}</p>
+
+      <div className="detailCard__header">
+        <h2 className="detailCard__header--title">{data.Name}</h2>
+        <div className="detailCard__header--class">
+          <span>
+            <i></i>
+            {data.City}
+          </span>
+          {data.Class1 ? <span>{data.Class1}</span> : ""}
+          {data.Class2 ? <span>{data.Class2}</span> : ""}
+          {data.Class3 ? <span>{data.Class3}</span> : ""}
+          {data.Class4 ? <span>{data.Class4}</span> : ""}
+          {data.Level ? <span>{data.Level}</span> : ""}
+        </div>
       </div>
+
       <div className="detailCard__iconGrid">
         <div className="detailCard__iconGrid--openTime">{data.OpenTime}</div>
         <div className="detailCard__iconGrid--ticketInfo">{!data.TicketInfo ? "免費" : data.TicketInfo}</div>
@@ -35,30 +46,21 @@ const renderDetail = data => {
         <a href={`tel:+${data.Phone}`} className="detailCard__iconGrid--phone">
           {data.Phone}
         </a>
+
+        <LeafletMap location={{ lat: data.Position.PositionLat, lon: data.Position.PositionLon }} />
+      </div>
+
+      <div className="detailCard__description">
+        <p>{data.DescriptionDetail}</p>
       </div>
     </div>
   );
+  // backPath={props.backPath}
 };
 
 //從 match 引入ID
 const DetailCard = props => {
-  const [data, setData] = useState(null);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(action.popWindowShowCreator(null));
-    console.log(props);
-    const fetchData = async () => {
-      const response = await PTX.get(`/v2/Tourism/ScenicSpot?$filter=ID%20eq%20'${props.match.params.id}'&$format=JSON`);
-
-      setData(response.data[0]);
-      console.log(response.data[0]);
-    };
-
-    fetchData();
-  }, []);
-
-  return <Popup backPath={`/spot`}>{data ? renderDetail(data) : <div>Loading...</div>}</Popup>;
+  return <React.Fragment>{props.data ? renderDetail(props.data) : <div>Loading...</div>}</React.Fragment>;
 };
 
 export default DetailCard;

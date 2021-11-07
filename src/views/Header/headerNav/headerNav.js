@@ -8,8 +8,8 @@ class NavBar extends React.Component {
     return (
       <ul className={this.props.className}>
         <li>
-          <Btn type="link" to="/" color="blue">
-            Home Page
+          <Btn type="link" to="/spot" color="blue">
+            景點查詢
           </Btn>
         </li>
         <li>

@@ -4,38 +4,33 @@ import { useSelector, useDispatch } from "react-redux";
 
 import ListSmallCard from "../card/listSmallCard/listSmallCard";
 
-const renderList = dataArray => {
+const renderList = (dataArray, hash) => {
   return dataArray.map(spotObj => {
-    return <ListSmallCard key={spotObj.ID} id={spotObj.ID} title={spotObj.Name} location={spotObj.City} url={spotObj.Picture.PictureUrl1} alt={spotObj.Picture.PictureDescription1} />;
+    return <ListSmallCard key={spotObj.ID} id={spotObj.ID} title={spotObj.Name} location={spotObj.City} url={spotObj.Picture.PictureUrl1} alt={spotObj.Picture.PictureDescription1} hash={hash} />;
   });
 };
 
 const SearchList = props => {
   const dispatch = useDispatch();
-  let dataObj = useSelector(state => state.searchData);
-  let nowPage = useSelector(state => state.nowPage);
+  let dataObj = useSelector(state => state.searchData?.data);
+  // let nowClickPage = useSelector(state => state.nowPage);
 
-  useEffect(() => {
-    return () => {
-      console.log("clear");
-      dispatch(action.pageBarNumberChangeCreator(1));
-    };
-  }, [dataObj]);
+  // useEffect(() => {
+  //   return () => {
+  //     console.log("clear");
+  //     dispatch(action.pageBarNumberChangeCreator(1));
+  //   };
+  // }, [dataObj]);
 
   if (!dataObj) {
     return <div>Loading...</div>;
   }
 
-  let dataArray = Object.values(dataObj);
-  if (dataArray.length === 0) {
+  if (Object.keys(dataObj).length === 0) {
     return <div>No Spot Founded!</div>;
   }
 
-  return (
-    <div>
-      <div>{renderList(dataObj[nowPage])}</div>
-    </div>
-  );
+  return <div className="searchList">{renderList(dataObj[props.hash.page], props.hash)}</div>;
 };
 
 export default SearchList;

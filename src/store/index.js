@@ -1,31 +1,7 @@
 import { PTX } from "../API";
 import { combineReducers } from "redux";
+import { pageCalcHelper } from "../helper";
 import history from "../helper/history";
-
-const city = {
-  臺北市: "Taipei",
-  臺中市: "Taichung",
-  基隆市: "Keelung",
-  臺南市: "Tainan",
-  高雄市: "Kaohsiung",
-  新北市: "NewTaipei",
-  宜蘭縣: "YilanCounty",
-  桃園市: "Taoyuan",
-  嘉義市: "Chiayi",
-  新竹縣: "HsinchuCounty",
-  苗栗縣: "MiaoliCounty",
-  南投縣: "NantouCounty",
-  彰化縣: "ChanghuaCounty",
-  新竹市: "Hsinchu",
-  雲林縣: "YunlinCounty",
-  嘉義縣: "ChiayiCounty",
-  屏東縣: "PingtungCounty",
-  花蓮縣: "HualienCounty",
-  臺東縣: "TaitungCounty",
-  金門縣: "KinmenCounty",
-  澎湖縣: "PenghuCounty",
-  連江縣: "LienchiangCounty",
-};
 
 //*---------------- type ---------------- *//
 
@@ -37,7 +13,7 @@ const POP_HIDE = "POP_HIDE";
 
 const FORM_SEARCH_SUBMIT = "FORM_SEARCH_SUBMIT";
 
-const PAGE_BAR_NUMBER_CHANGE = "PAGE_BAR_NUMBER_CHANGE";
+// const PAGE_BAR_NUMBER_CHANGE = "PAGE_BAR_NUMBER_CHANGE";
 
 //*---------------- Action ---------------- *//
 export const action = {
@@ -84,73 +60,18 @@ export const action = {
   //-----------------------------------------//
   //get search data
 
-  formSearchSubmitCreator: ({ term, type, city }) => {
-    if (type === "景點") {
-      switch (city) {
-        case "不分縣市":
-          return async dispatch => {
-            history.push("/spot");
-            const response = await PTX.get("/v2/Tourism/ScenicSpot", {
-              params: {
-                $filter: `${term ? `contains(Name,'${term}')` : ""}`,
-                $format: "JSON",
-                $top: 100,
-              },
-            });
-
-            let dataForPageObj = pageCalcHelper(response.data);
-
-            dispatch({
-              type: FORM_SEARCH_SUBMIT,
-              payload: response.data.length === 0 ? [] : dataForPageObj,
-            });
-          };
-
-        default:
-          return async dispatch => {
-            history.push("/spot");
-            const response = await PTX.get("/v2/Tourism/ScenicSpot", {
-              params: {
-                $filter: `${term ? `contains(Name,'${term}') and` : ``} (contains(city,'${city}') or contains(Address,'${city}'))`,
-                $format: "JSON",
-              },
-            });
-
-            let dataForPageObj = pageCalcHelper(response.data);
-
-            dispatch({
-              type: FORM_SEARCH_SUBMIT,
-              payload: response.data.length === 0 ? [] : dataForPageObj,
-            });
-          };
-      }
-    }
-
+  formSearchSubmitCreator: () => {
     return { type: FORM_SEARCH_SUBMIT, payload: "can't find" };
   },
 
   //-----------------------------------------//
 
-  pageBarNumberChangeCreator: page => {
-    return {
-      type: PAGE_BAR_NUMBER_CHANGE,
-      payload: page,
-    };
-  },
-};
-
-const pageCalcHelper = responseDataArray => {
-  const cardPerPage = 20;
-  let page = !responseDataArray.length % cardPerPage === 0 ? responseDataArray.length / 20 + 1 : responseDataArray.length / 20;
-
-  let dataForPageObj = {};
-  for (let i = 1; i <= page; i++) {
-    //62筆 = 0~19 20~39 40~59 60~62
-    dataForPageObj[i] = responseDataArray.slice((i - 1) * cardPerPage, i * cardPerPage);
-  }
-
-  console.log(dataForPageObj);
-  return dataForPageObj;
+  // pageBarNumberChangeCreator: page => {
+  //   return {
+  //     type: PAGE_BAR_NUMBER_CHANGE,
+  //     payload: page,
+  //   };
+  // },
 };
 
 //*---------------- Reducer ---------------- *//
@@ -193,17 +114,17 @@ const formSearchSubmitReducer = (preState = null, action) => {
   }
 };
 
-const pageBarNumberChange = (preState = 1, action) => {
-  if (action.type === PAGE_BAR_NUMBER_CHANGE) {
-    return action.payload;
-  }
-  return preState;
-};
+// const pageBarNumberChange = (preState = 1, action) => {
+//   if (action.type === PAGE_BAR_NUMBER_CHANGE) {
+//     return action.payload;
+//   }
+//   return preState;
+// };
 
 export const reducers = combineReducers({
   oneBus: oneBusDataReducer,
   fullBusRoute: fullBusRouteReducer,
   popWindow: popWindowReducer,
   searchData: formSearchSubmitReducer,
-  nowPage: pageBarNumberChange,
+  // nowPage: pageBarNumberChange,
 });

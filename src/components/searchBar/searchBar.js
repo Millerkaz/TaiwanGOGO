@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from "react";
+import history from "../../helper/history";
 import { action } from "../../store";
 import { useDispatch } from "react-redux";
 
 const SearchBar = props => {
   const [term, setTerm] = useState("");
   const [type, setType] = useState("景點");
-  const [city, setCity] = useState("不分縣市");
+  const [city, setCity] = useState("all");
 
   const dispatch = useDispatch();
 
   const formSubmitHandler = e => {
     e.preventDefault();
     console.log({ term, type, city });
-    dispatch(action.formSearchSubmitCreator({ term, type, city }));
+    // dispatch(action.formSearchSubmitCreator({ term, type, city }));
+    history.push(`/spot/${city}/${term ? term : "all"}/1`);
     setTerm("");
     setType("景點");
-    setCity("不分縣市");
+    setCity("all");
   };
 
   //TODO: 表單必須驗證INPUT有無輸入
