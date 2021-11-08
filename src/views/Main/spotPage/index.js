@@ -3,16 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import SearchList from "../../../components/searchList/searchList";
 import { PTX } from "../../../API";
 import { pageCalcHelper } from "../../../helper";
-
-import PageBtnBar from "../../../components/pageBtnBar/pageBtnBar";
-import { action } from "../../../store";
-import history from "../../../helper/history";
-
 import SearchBar from "../../../components/searchBar/searchBar";
+import PageBtnBar from "../../../components/pageBtnBar/pageBtnBar";
+
+import cloud_big from "../../../img/cloud1.svg";
+import cloud_small from "../../../img/cloud2.svg";
 
 const SpotPage = props => {
   const dispatch = useDispatch();
   const { city, term, page } = props.match.params;
+  const amount = useSelector(state => state.searchData?.amount);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,7 +30,7 @@ const SpotPage = props => {
 
         dispatch({
           type: FORM_SEARCH_SUBMIT,
-          payload: { data: response.data.length === 0 ? {} : dataForPageObj, totalPage: Object.keys(dataForPageObj) },
+          payload: { data: response.data.length === 0 ? {} : dataForPageObj, totalPage: Object.keys(dataForPageObj), amount: response.data.length },
         });
 
         return;
@@ -47,7 +47,7 @@ const SpotPage = props => {
 
         dispatch({
           type: FORM_SEARCH_SUBMIT,
-          payload: { data: response.data.length === 0 ? {} : dataForPageObj, totalPage: Object.keys(dataForPageObj) },
+          payload: { data: response.data.length === 0 ? {} : dataForPageObj, totalPage: Object.keys(dataForPageObj), amount: response.data.length },
         });
 
         return;
@@ -58,11 +58,17 @@ const SpotPage = props => {
   }, [city, term]);
 
   return (
-    <React.Fragment>
-      <div>搜尋結果：{`關鍵字：${term}，城市：${city}`}</div>
+    <main>
+      <div className="main__spotPage">
+        <img src={cloud_big} className="main__spotPage--cloudBig" />
+        <img src={cloud_small} className="main__spotPage--cloudSmall" />
+        <h3>全台景點</h3>
+        <SearchBar />
+        {<p>搜尋結果：{`關鍵字：${term}，城市：${city}，${amount}個結果`}</p>}
+      </div>
       <SearchList className="main__searchList" hash={props.match.params} />
       <PageBtnBar className="main__pageBtnBar" hash={props.match.params} />
-    </React.Fragment>
+    </main>
   );
 };
 

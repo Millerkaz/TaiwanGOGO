@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Btn from "../btn";
 import history from "../../helper/history";
 import { action } from "../../store";
+import "./pageBtnBar.scss";
 
 const PageBtnBar = props => {
   const dispatch = useDispatch();
@@ -15,28 +16,33 @@ const PageBtnBar = props => {
       return "";
     }
 
-    const numberBtn = totalPageArray.map(number => {
-      return (
-        <Btn
-          key={number}
-          color="red"
-          onClick={() => {
-            window.scroll(0, 0);
-            history.push(`/spot/${city}/${term}/${Number(number)}`);
-          }}
-        >
-          {number}
-        </Btn>
-      );
-    });
+    const numberBtn = () => {
+      let pageBarNumber = page % btnCountPerRow === 0 ? page / btnCountPerRow : Number.parseInt(page / btnCountPerRow) + 1;
+      let nowBar = totalPageArray.slice((pageBarNumber - 1) * btnCountPerRow, pageBarNumber * btnCountPerRow);
+      return nowBar.map(number => {
+        return (
+          <Btn
+            key={number}
+            color="pageBar"
+            onClick={() => {
+              window.scroll(0, 0);
+              history.push(`/spot/${city}/${term}/${Number(number)}`);
+            }}
+            className={page === number ? "btn--active" : ""}
+          >
+            {number}
+          </Btn>
+        );
+      });
+    };
 
     return (
       <React.Fragment>
-        {Number(page) % btnCountPerRow === 1 ? (
+        {Number(page) === 1 ? (
           ""
         ) : (
           <Btn
-            color="red"
+            color="pageBar"
             onClick={() => {
               window.scroll(0, 0);
               history.push(`/spot/${city}/${term}/${Number(page) - 1}`);
@@ -45,12 +51,12 @@ const PageBtnBar = props => {
             {"<"}
           </Btn>
         )}
-        {numberBtn}
+        {numberBtn()}
         {totalPageArray.length === 1 || Number(page) === totalPageArray.length ? (
           ""
         ) : (
           <Btn
-            color="red"
+            color="pageBar"
             onClick={() => {
               window.scroll(0, 0);
               history.push(`/spot/${city}/${term}/${Number(page) + 1}`);

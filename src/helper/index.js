@@ -1,3 +1,5 @@
+import history from "./history";
+
 // const { city, term, page } = props.hash;
 // const push = history.push(`/spot/${city}/${term}/${page}/${props.id}`);
 
@@ -27,7 +29,7 @@ export const city = {
 };
 
 export const pageCalcHelper = responseDataArray => {
-  const cardPerPage = 20;
+  const cardPerPage = 12;
   let page = responseDataArray.length % cardPerPage === 0 ? responseDataArray.length / cardPerPage : responseDataArray.length / cardPerPage + 1;
 
   // console.log(responseDataArray.length % cardPerPage === 0, responseDataArray.length / cardPerPage, page);
@@ -40,4 +42,9 @@ export const pageCalcHelper = responseDataArray => {
 
   // console.log(dataForPageObj);
   return dataForPageObj;
+};
+
+export const historyPush = path => {
+  window.scroll(0, 0);
+  history.push(path);
 };

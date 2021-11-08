@@ -1,0 +1,9 @@
+.searchList {
+  margin: 5rem 12rem 7.6rem 12rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(35.4rem, 1fr));
+  //   column-gap: 7rem;
+  row-gap: 7.6rem;
+
+  justify-items: center;
+}

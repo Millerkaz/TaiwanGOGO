@@ -21,7 +21,12 @@ const SpotDetail = props => {
     fetchData();
   }, []);
 
-  return <DetailCard data={data} backPath={`/spot/${city}/${term}/${page}`} />;
+  return (
+    <React.Fragment>
+      {/* <img src={backImg} className="detailCard__background" /> */}
+      <DetailCard data={data} backPath={`/spot/${city}/${term}/${page}`} />
+    </React.Fragment>
+  );
 };
 
 export default SpotDetail;

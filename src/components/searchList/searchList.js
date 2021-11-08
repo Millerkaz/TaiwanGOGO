@@ -4,9 +4,11 @@ import { useSelector, useDispatch } from "react-redux";
 
 import ListSmallCard from "../card/listSmallCard/listSmallCard";
 
+import "./searchList.scss";
+
 const renderList = (dataArray, hash) => {
   return dataArray.map(spotObj => {
-    return <ListSmallCard key={spotObj.ID} id={spotObj.ID} title={spotObj.Name} location={spotObj.City} url={spotObj.Picture.PictureUrl1} alt={spotObj.Picture.PictureDescription1} hash={hash} />;
+    return <ListSmallCard key={spotObj.ID} id={spotObj.ID} title={spotObj.Name} location={spotObj.City} url={spotObj.Picture.PictureUrl1} alt={spotObj.Picture.PictureDescription1} address={spotObj.Address?.slice(0, 3)} hash={hash} />;
   });
 };
 

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import history from "../../helper/history";
 import { action } from "../../store";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import Btn from "../../components/btn";
+
+import "./searchBar.scss";
 
 const SearchBar = props => {
   const [term, setTerm] = useState("");
@@ -15,7 +18,6 @@ const SearchBar = props => {
     console.log({ term, type, city });
     // dispatch(action.formSearchSubmitCreator({ term, type, city }));
     history.push(`/spot/${city}/${term ? term : "all"}/1`);
-    setTerm("");
     setType("景點");
     setCity("all");
   };
@@ -23,10 +25,8 @@ const SearchBar = props => {
   //TODO: 表單必須驗證INPUT有無輸入
 
   return (
-    <div className="searchBar">
+    <div className={`searchBar ${props.className}`}>
       <div className="searchBar__container">
-        <div className="searchBar__title">welcome to taiwan</div>
-        <div className="searchBar__subtitle">台北、台中、台南、屏東、宜蘭……遊遍台灣</div>
         <form className="searchBar__form" onSubmit={formSubmitHandler}>
           <input
             type="text"
@@ -35,16 +35,18 @@ const SearchBar = props => {
               setTerm(e.target.value);
             }}
           />
-          <button type="submit">submit</button>
-          <select
-            value={type}
-            onChange={e => {
-              setType(e.target.value);
-            }}
-          >
-            <option value="景點">景點</option>
-            <option value="活動">活動</option>
-          </select>
+          <div class="custom-select">
+            <select
+              value={type}
+              onChange={e => {
+                setType(e.target.value);
+              }}
+            >
+              <option value="景點">景點</option>
+              <option value="活動">活動</option>
+            </select>
+          </div>
+
           <select
             value={city}
             onChange={e => {
@@ -75,7 +77,7 @@ const SearchBar = props => {
             <option value="澎湖縣">澎湖縣</option>
             <option value="連江縣">連江縣</option>
           </select>
-          <button>location</button>
+          <Btn color="search">搜尋</Btn>
         </form>
       </div>
     </div>

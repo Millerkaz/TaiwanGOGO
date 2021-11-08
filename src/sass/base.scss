@@ -1,11 +1,48 @@
-* {
+*::before,
+*,
+*::after {
   margin: 0;
   padding: 0;
-  padding-inline: 0px;
+  font-family: "Noto Sans TC";
+  // font-weight: 500;
   line-height: 1;
-  // border: none;
+  border: none;
+  box-sizing: border-box;
+  // color: $color-grey-light-1;
+}
+a,
+a:hover,
+a:active,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+svg {
+  background-color: transparent;
+  // fill: $color-primary;
 }
 
 html {
   font-size: 62.5%;
+}
+
+body {
+  background-color: #8ad1e8;
+  overflow-x: hidden;
+}
+
+#root {
+  max-width: 144rem;
+  margin: 0 auto;
+}
+
+#background {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  z-index: -1;
+  // object-fit: cover;
+  // height: 100%;
 }
