@@ -4,8 +4,8 @@ import { action } from "../../../../store";
 import { useDispatch } from "react-redux";
 import DetailCard from "../../../../components/card/detailCard";
 
-import cloud_big from "../../../../img/icon/cloud 1.svg";
-import cloud_small from "../../../../img/icon/cloud 2.svg";
+import cloud_big from "../../../../img/icon/cloud 1.png";
+import cloud_small from "../../../../img/icon/cloud 2.png";
 
 //從 match 引入ID
 const SpotDetail = props => {

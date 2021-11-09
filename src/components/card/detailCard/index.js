@@ -4,10 +4,10 @@ import Btn from "../../btn";
 import { PTX } from "../../../API";
 
 import "./detailCard.scss";
-import marker_icon from "../../../img/Marker.svg";
-import clock_icon from "../../../img/icon/Clock.svg";
-import info_icon from "../../../img/icon/Info.svg";
-import dollar_icon from "../../../img/icon/US Dollar.svg";
+import marker_icon from "../../../img/Marker.png";
+import clock_icon from "../../../img/icon/Clock.png";
+import info_icon from "../../../img/icon/Info.png";
+import dollar_icon from "../../../img/icon/US Dollar.png";
 import spot404_img from "../../../img/spotImg404.png";
 
 import SearchList from "../../searchList/searchList";

@@ -6,8 +6,8 @@ import { pageCalcHelper } from "../../../helper";
 import SearchBar from "../../../components/searchBar/searchBar";
 import PageBtnBar from "../../../components/pageBtnBar/pageBtnBar";
 
-import cloud_big from "../../../img/cloud1.svg";
-import cloud_small from "../../../img/cloud2.svg";
+import cloud_big from "../../../img/icon/cloud 1.png";
+import cloud_small from "../../../img/icon/cloud 2.png";
 
 const ActivityPage = props => {
   const dispatch = useDispatch();

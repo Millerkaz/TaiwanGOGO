@@ -8,8 +8,8 @@ import SearchList from "../../../components/searchList/searchList";
 import Btn from "../../../components/btn";
 
 import title_img from "../../../img/title.png";
-import cloud_big from "../../../img/icon/cloud 1.svg";
-import cloud_small from "../../../img/icon/cloud 2.svg";
+import cloud_big from "../../../img/icon/cloud 1.png";
+import cloud_small from "../../../img/icon/cloud 2.png";
 import saly14 from "../../../img/Saly-14.png";
 import saly15 from "../../../img/Saly-15.png";
 import hotel1 from "../../../img/icon/hotel.png";

@@ -1,5 +1,5 @@
 import React from "react";
-import marker_icon from "../../../img/Marker.svg";
+import marker_icon from "../../../img/Marker.png";
 import spot404_img from "../../../img/spotImg404.png";
 import activity404_img from "../../../img/activity404.png";
 import restaurant_img from "../../../img/restaurant404.png";

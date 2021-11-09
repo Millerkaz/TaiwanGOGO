@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./main.scss";
-import cloud_big from "../../img/cloud1.svg";
-import cloud_small from "../../img/cloud2.svg";
+import cloud_big from "../../img/icon/cloud 1.png";
+import cloud_small from "../../img/icon/cloud 2.png";
 
 import SearchBar from "../../components/searchBar/searchBar";
 

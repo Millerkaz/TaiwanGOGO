@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import HeaderNav from "./headerNav/headerNav";
 import { historyPush } from "../../helper";
 
-import logo from "../../img/logo.svg";
+import logo from "../../img/logo.png";
 
 class Header extends React.Component {
   render() {
