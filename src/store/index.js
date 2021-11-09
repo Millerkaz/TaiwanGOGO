@@ -1,7 +1,5 @@
 import { PTX } from "../API";
 import { combineReducers } from "redux";
-import { pageCalcHelper } from "../helper";
-import history from "../helper/history";
 
 //*---------------- type ---------------- *//
 

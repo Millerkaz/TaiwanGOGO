@@ -1,7 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Router, Route, Link, Switch } from "react-router-dom";
-import { action } from "./store";
+import { Router, Route } from "react-router-dom";
 
 import history from "./helper/history";
 

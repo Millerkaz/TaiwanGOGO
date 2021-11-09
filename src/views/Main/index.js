@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import "./main.scss";
 import cloud_big from "../../img/cloud1.svg";
 import cloud_small from "../../img/cloud2.svg";
-import { Router, Route, Link } from "react-router-dom";
 
 import SearchBar from "../../components/searchBar/searchBar";
 

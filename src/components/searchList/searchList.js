@@ -1,8 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import noData_img from "../../img/Saly-17.png";
-
-import { action } from "../../store";
-import { useSelector, useDispatch } from "react-redux";
 
 import ListSmallCard from "../card/listSmallCard/listSmallCard";
 

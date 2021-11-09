@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import history from "../../helper/history";
-import { action } from "../../store";
-import { useDispatch, useSelector } from "react-redux";
+
+import { useDispatch } from "react-redux";
 import Btn from "../../components/btn";
 
 import "./searchBar.scss";

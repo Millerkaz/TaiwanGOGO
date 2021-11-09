@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { PTX } from "../../../../API";
-import { action } from "../../../../store";
 import { useDispatch } from "react-redux";
 import DetailCard from "../../../../components/card/detailCard";
 

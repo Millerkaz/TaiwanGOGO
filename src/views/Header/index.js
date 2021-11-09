@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import HeaderNav from "./headerNav/headerNav";
-import Btn from "../../components/btn";
 import { historyPush } from "../../helper";
 
 import logo from "../../img/logo.svg";

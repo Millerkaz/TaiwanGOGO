@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Btn from "../btn";
 import history from "../../helper/history";
-import { action } from "../../store";
 import "./pageBtnBar.scss";
 
 const PageBtnBar = props => {

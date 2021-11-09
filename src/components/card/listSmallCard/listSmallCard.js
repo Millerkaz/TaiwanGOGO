@@ -1,5 +1,4 @@
 import React from "react";
-import history from "../../../helper/history";
 import marker_icon from "../../../img/Marker.svg";
 import spot404_img from "../../../img/spotImg404.png";
 import activity404_img from "../../../img/activity404.png";

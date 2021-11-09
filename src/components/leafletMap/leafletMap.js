@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import styles from "./leafletMap.module.scss";
 
 const LeafletMap = props => {
   useEffect(() => {
