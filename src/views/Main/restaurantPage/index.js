@@ -20,7 +20,8 @@ const SpotPage = props => {
       const FORM_SEARCH_SUBMIT = "FORM_SEARCH_SUBMIT";
 
       if (city === "all") {
-        const response = await PTX.get(`/v2/Tourism/ScenicSpot?${term === "all" ? "" : `$filter=contains(Name,'${term}')`}`, {
+        //!
+        const response = await PTX.get(`/v2/Tourism/Restaurant?${term === "all" ? "" : `$filter=contains(Name,'${term}')`}`, {
           params: {
             $format: "JSON",
             $top: 100,
@@ -38,7 +39,8 @@ const SpotPage = props => {
       }
 
       if (city !== "all") {
-        const response = await PTX.get(`/v2/Tourism/ScenicSpot?${term === "all" ? `$filter=contains(city,'${city}') or contains(Address,'${city}')` : `$filter=contains(Name,'${term}') and (contains(city,'${city}') or contains(Address,'${city}'))`}`, {
+        //!
+        const response = await PTX.get(`/v2/Tourism/Restaurant?${term === "all" ? `$filter=contains(city,'${city}') or contains(Address,'${city}')` : `$filter=contains(Name,'${term}') and (contains(city,'${city}') or contains(Address,'${city}'))`}`, {
           params: {
             $format: "JSON",
           },
@@ -63,12 +65,15 @@ const SpotPage = props => {
       <div className="main__spotPage">
         <img src={cloud_big} className="main__spotPage--cloudBig" />
         <img src={cloud_small} className="main__spotPage--cloudSmall" />
-        <h3>全台景點</h3>
-        <SearchBar type="spot" />
-        {<p>搜尋結果：{`關鍵字：${term}，城市：${city}，${amount} 個結果`}</p>}
+        {/* //! */}
+        <h3>找餐廳</h3>
+        <SearchBar type="restaurant" />
+        {<p>搜尋結果：{`關鍵字：${term}，城市：${city}，${amount}個結果`}</p>}
       </div>
-      <SearchList className="main__searchList" data={dataObj} hash={props.match.params} />
-      <PageBtnBar type="spot" className="main__pageBtnBar" hash={props.match.params} />
+      {/* //! */}
+      <SearchList type="restaurant" className="main__searchList" data={dataObj} hash={props.match.params} />
+      {/* //! */}
+      <PageBtnBar type="restaurant" className="main__pageBtnBar" hash={props.match.params} />
     </main>
   );
 };

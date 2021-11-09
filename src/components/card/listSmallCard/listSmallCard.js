@@ -2,24 +2,45 @@ import React from "react";
 import history from "../../../helper/history";
 import marker_icon from "../../../img/Marker.svg";
 import spot404_img from "../../../img/spotImg404.png";
+import activity404_img from "../../../img/activity404.png";
+import restaurant_img from "../../../img/restaurant404.png";
 import { historyPush } from "../../../helper";
 import "./listSmallCard.scss";
 
+const showErrorImg = function (props, e = null) {
+  if (e === null) {
+    e = { target: { src: null } };
+  }
+
+  switch (props.type) {
+    case "activity":
+      e.target.src = activity404_img;
+      return activity404_img;
+    case "restaurant":
+      e.target.src = restaurant_img;
+      return restaurant_img;
+    default:
+      e.target.src = spot404_img;
+      return spot404_img;
+  }
+};
+
 const ListSmallCard = props => {
   const { city, term, page } = props.hash;
+
   return (
     <div
       className="listSmallCard"
       onClick={() => {
-        historyPush(`/spot/${city}/${term}/${page}/${props.id}`);
+        historyPush(`/${props.type}/${city}/${term}/${page}/${props.id}`);
       }}
     >
       <div className="listSmallCard__img-container">
         <img
-          onError={function (e) {
-            e.target.src = spot404_img;
+          onError={e => {
+            showErrorImg(props, e);
           }}
-          src={props.url ? props.url : spot404_img}
+          src={props.url ? props.url : showErrorImg(props)}
           alt={props.alt || "NO PICTURE"}
         />
       </div>

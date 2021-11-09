@@ -13,6 +13,8 @@ const POP_HIDE = "POP_HIDE";
 
 const FORM_SEARCH_SUBMIT = "FORM_SEARCH_SUBMIT";
 
+const FETCH_HOMEPAGE_DATA = "FETCH_HOMEPAGE_DATA";
+
 // const PAGE_BAR_NUMBER_CHANGE = "PAGE_BAR_NUMBER_CHANGE";
 
 //*---------------- Action ---------------- *//
@@ -66,6 +68,21 @@ export const action = {
 
   //-----------------------------------------//
 
+  fetchHomepageDataCreator: (coords = null) => {
+    return async dispatch => {
+      const filterString = !coords ? "" : `$spatialFilter=nearby(${coords.lat}%2C${coords.lon}%2C10000)&$`;
+
+      const spotPrise = PTX.get(`/v2/Tourism/ScenicSpot?$top=6&${filterString}format=JSON`);
+
+      const activityPromise = PTX.get(`/v2/Tourism/Activity?$top=3&${filterString}format=JSON`);
+
+      const restaurantPromise = PTX.get(`/v2/Tourism/Restaurant?$top=6&${filterString}format=JSON`);
+
+      const AllData = await Promise.all([spotPrise, activityPromise, restaurantPromise]);
+
+      dispatch({ type: FETCH_HOMEPAGE_DATA, payload: { spot: AllData[0].data, activity: AllData[1].data, restaurant: AllData[2].data } });
+    };
+  },
   // pageBarNumberChangeCreator: page => {
   //   return {
   //     type: PAGE_BAR_NUMBER_CHANGE,
@@ -114,6 +131,13 @@ const formSearchSubmitReducer = (preState = null, action) => {
   }
 };
 
+const homepageDataReducer = (preState = null, action) => {
+  if (action.type === FETCH_HOMEPAGE_DATA) {
+    return { ...action.payload };
+  }
+  return preState;
+};
+
 // const pageBarNumberChange = (preState = 1, action) => {
 //   if (action.type === PAGE_BAR_NUMBER_CHANGE) {
 //     return action.payload;
@@ -126,5 +150,6 @@ export const reducers = combineReducers({
   fullBusRoute: fullBusRouteReducer,
   popWindow: popWindowReducer,
   searchData: formSearchSubmitReducer,
+  homepageData: homepageDataReducer,
   // nowPage: pageBarNumberChange,
 });

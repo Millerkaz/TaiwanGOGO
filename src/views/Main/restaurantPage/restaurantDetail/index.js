@@ -6,7 +6,6 @@ import DetailCard from "../../../../components/card/detailCard";
 
 import cloud_big from "../../../../img/icon/cloud 1.svg";
 import cloud_small from "../../../../img/icon/cloud 2.svg";
-
 //從 match 引入ID
 const SpotDetail = props => {
   const [data, setData] = useState(null);
@@ -16,19 +15,21 @@ const SpotDetail = props => {
   useEffect(() => {
     dispatch(action.popWindowShowCreator(null));
     const fetchData = async () => {
-      const response = await PTX.get(`/v2/Tourism/ScenicSpot?$filter=ID%20eq%20'${props.match.params.id}'&$format=JSON`);
+      //!
+      const response = await PTX.get(`/v2/Tourism/Restaurant?$filter=ID%20eq%20'${props.match.params.id}'&$format=JSON`);
 
       setData(response.data[0]);
     };
 
     fetchData();
-  }, [props.match.params.id]);
+  }, []);
 
   return (
     <React.Fragment>
       <img src={cloud_big} className="main__detail--cloudBig" />
       <img src={cloud_small} className="main__detail--cloudSmall" />
-      <DetailCard data={data} backPath={`/spot/${city}/${term}/${page}`} />
+      {/* //! */}
+      <DetailCard data={data} backPath={`/restaurant/${city}/${term}/${page}`} />
     </React.Fragment>
   );
 };

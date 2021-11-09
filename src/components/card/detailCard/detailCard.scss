@@ -1,3 +1,5 @@
+$color-font-main: #291109;
+
 .detailCard {
   margin: 20rem 12rem 10rem 12rem;
 
@@ -56,7 +58,7 @@
       span {
         font-size: 1.5rem;
         color: #696969;
-        margin: 0.7rem 1rem 4.5rem 0rem;
+        margin: 1.5rem 1rem 4rem 0rem;
 
         &:first-child {
           img {
@@ -141,6 +143,21 @@
       font-weight: 300;
       font-size: 1.6rem;
       line-height: 3rem;
+    }
+  }
+
+  &__near {
+    h2 {
+      color: $color-font-main;
+      font-size: 3.4rem;
+      font-weight: 400;
+    }
+
+    &--header {
+      width: 85%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
     }
   }
 }

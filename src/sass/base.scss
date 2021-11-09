@@ -32,6 +32,20 @@ body {
   overflow-x: hidden;
 }
 
+footer {
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.img--hidden {
+  display: none;
+}
+
 #root {
   max-width: 144rem;
   margin: 0 auto;

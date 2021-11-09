@@ -22,7 +22,7 @@ class NavBar extends React.Component {
           <Btn
             color="nav"
             onClick={() => {
-              historyPush("/");
+              historyPush("/activity");
             }}
           >
             找活動
@@ -32,7 +32,7 @@ class NavBar extends React.Component {
           <Btn
             color="nav"
             onClick={() => {
-              historyPush("/");
+              historyPush("/restaurant");
             }}
           >
             找美食

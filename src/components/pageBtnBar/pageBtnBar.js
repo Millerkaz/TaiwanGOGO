@@ -26,7 +26,7 @@ const PageBtnBar = props => {
             color="pageBar"
             onClick={() => {
               window.scroll(0, 0);
-              history.push(`/spot/${city}/${term}/${Number(number)}`);
+              history.push(`/${props.type}/${city}/${term}/${Number(number)}`);
             }}
             className={page === number ? "btn--active" : ""}
           >
@@ -45,7 +45,7 @@ const PageBtnBar = props => {
             color="pageBar"
             onClick={() => {
               window.scroll(0, 0);
-              history.push(`/spot/${city}/${term}/${Number(page) - 1}`);
+              history.push(`/${props.type}/${city}/${term}/${Number(page) - 1}`);
             }}
           >
             {"<"}
@@ -59,7 +59,7 @@ const PageBtnBar = props => {
             color="pageBar"
             onClick={() => {
               window.scroll(0, 0);
-              history.push(`/spot/${city}/${term}/${Number(page) + 1}`);
+              history.push(`/${props.type}/${city}/${term}/${Number(page) + 1}`);
             }}
           >
             {">"}

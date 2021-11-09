@@ -27,9 +27,16 @@
   }
 
   &__title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    color: #291109;
     flex: 0 1 100%;
     margin-top: 0.5rem;
-
+    text-align: start;
+    font-weight: 500;
+    line-height: 3.34rem;
     font-size: 2.4rem;
     font-family: inherit;
   }
