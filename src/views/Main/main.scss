@@ -1,0 +1,254 @@
+$color-font-main: #291109;
+
+.main {
+  &__errorImg {
+    margin-top: 10rem;
+    margin-left: 70rem;
+  }
+
+  &__spotPage {
+    padding-top: 22rem;
+    text-align: center;
+
+    // overflow: hidden;
+    // height: 100vh;
+
+    h3 {
+      margin-bottom: 4.9rem;
+      font-size: 4rem;
+      line-height: 5.6rem;
+      font-family: inherit;
+
+      /* identical to box height */
+      text-align: center;
+
+      color: $color-font-main;
+
+      text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    &--cloudBig {
+      width: 47.1rem;
+      height: 27.8rem;
+      top: 22%;
+      right: -5%;
+      position: absolute;
+      z-index: -1;
+    }
+
+    &--cloudSmall {
+      width: 26.1rem;
+      height: 15.4rem;
+      top: 8%;
+      left: 2%;
+      position: absolute;
+      z-index: -1;
+    }
+
+    p {
+      margin-top: 8rem;
+      font-size: 2rem;
+    }
+  }
+
+  &__pageBtnBar {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__homePage {
+    padding-top: 28.54rem;
+    text-align: center;
+
+    &-cloud {
+      position: absolute;
+      z-index: -1;
+
+      &--B_top {
+        width: 65.1rem;
+        height: 38.4rem;
+        top: 45%;
+        left: -10%;
+      }
+
+      &--S_top {
+        width: 26.1rem;
+        height: 15.4rem;
+        top: 15%;
+        right: 5%;
+      }
+
+      &--B_2nd {
+        width: 54.6rem;
+        height: 32.2rem;
+        transform: rotateY(180deg);
+        top: 198%;
+        right: -10%;
+      }
+
+      &--S_2nd {
+        width: 30.3rem;
+        height: 17.9rem;
+        top: 200%;
+        left: -2.5%;
+      }
+
+      &--S_mid {
+        width: 30.3rem;
+        height: 17.9rem;
+        top: 295%;
+        left: 60%;
+      }
+
+      &--B_3rd {
+        width: 30.3rem;
+        height: 17.9rem;
+        top: 445%;
+        left: 20%;
+      }
+
+      &--S_3rd {
+        width: 20.6rem;
+        height: 12.2rem;
+        top: 456%;
+        left: 28%;
+      }
+
+      &--B_last-L {
+        width: 53.1rem;
+        height: 31.3rem;
+        transform: rotateY(180deg);
+        top: 520%;
+        left: -10%;
+      }
+
+      &--B_last-R {
+        width: 53.4rem;
+        height: 31.5rem;
+        top: 560%;
+        right: -15%;
+      }
+    }
+
+    &-bookman {
+      position: absolute;
+      z-index: -1;
+      transform: rotateZ(-5deg);
+      top: 205%;
+      left: 16%;
+    }
+
+    &-flagman {
+      position: absolute;
+      z-index: -1;
+      transform: rotateZ(15deg);
+      top: 35%;
+      right: 10%;
+    }
+
+    &-boat {
+      position: absolute;
+      z-index: -1;
+
+      top: 530%;
+      right: 10%;
+    }
+
+    &--title {
+      margin-bottom: 4rem;
+    }
+
+    h3 {
+      color: $color-font-main;
+      font-size: 2.4rem;
+      font-weight: 400;
+      margin-bottom: 3.6rem;
+    }
+
+    h2 {
+      color: $color-font-main;
+      font-size: 3.4rem;
+      font-weight: 400;
+      margin-top: 32rem;
+      margin-bottom: 6.2rem;
+    }
+
+    button {
+      margin: 0 auto;
+    }
+
+    &--hotel {
+      margin-top: 9.4rem;
+      display: flex;
+      justify-content: space-evenly;
+
+      &-card {
+        width: 27.8rem;
+        height: 29.1rem;
+        background: linear-gradient(180deg, rgba(239, 239, 239, 0) 0%, rgba(206, 206, 206, 0.2) 100%), #ffffff;
+        box-shadow: 8px 48px 35px -13px rgba(0, 0, 0, 0.25), inset -4px -4px 3px -2px rgba(0, 0, 0, 0.25);
+        border-radius: 50px;
+
+        img {
+          margin: 6rem 8.4rem 3.42rem 8.4rem;
+        }
+        p {
+          color: $color-font-main;
+          font-weight: 500;
+          font-size: 2rem;
+          line-height: 2.8rem;
+          flex: 0 10 100%;
+        }
+      }
+    }
+
+    &--local {
+      margin-top: 9.4rem;
+      margin-bottom: 21.1rem;
+      display: flex;
+      justify-content: space-evenly;
+
+      &-card {
+        width: 44.5rem;
+        height: 44.6rem;
+        background: linear-gradient(180deg, rgba(239, 239, 239, 0) 0%, rgba(206, 206, 206, 0.2) 100%), #ffffff;
+        box-shadow: 8px 48px 35px -13px rgba(0, 0, 0, 0.25), inset -4px -4px 3px -2px rgba(0, 0, 0, 0.25);
+        border-radius: 50px;
+
+        p {
+          font-weight: 500;
+          font-size: 2.4rem;
+          line-height: 3.4rem;
+          color: $color-font-main;
+        }
+      }
+
+      &-bikeImg {
+        margin: 6.7rem 10.37rem 2.736rem 10.3rem;
+      }
+
+      &-busImg {
+        margin-left: 4.6rem;
+        margin-bottom: 2.71rem;
+      }
+    }
+  }
+
+  &__detail {
+    &--cloudBig {
+      height: 25.2rem;
+      position: absolute;
+      top: 68%;
+      left: 1%;
+      z-index: 2;
+    }
+
+    &--cloudSmall {
+      width: 30.3rem;
+      height: 17.9rem;
+      position: absolute;
+      top: 10%;
+      right: 7%;
+    }
+  }
+}

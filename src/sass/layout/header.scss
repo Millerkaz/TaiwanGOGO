@@ -1,0 +1,40 @@
+.header {
+  width: 120rem;
+  background: #ffffff;
+  box-shadow: 0px 45px 73px rgba(0, 0, 0, 0.2), inset 0px -3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 40px;
+  margin-top: 4.2rem;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  position: fixed;
+  display: flex;
+  z-index: 100000;
+
+  &__logo {
+    display: inline-block;
+    margin: 2.2rem auto 2.8rem 3.1rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__navBar {
+    flex: 0 1 55%;
+    font-size: 2.4rem;
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+
+    li {
+      margin: 1.6rem 1rem;
+      width: 12rem;
+
+      &:last-child {
+        margin-right: 1.8rem;
+      }
+    }
+  }
+}
