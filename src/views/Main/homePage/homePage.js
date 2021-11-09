@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { action } from "../../../store";
 import { historyPush } from "../../../helper";
@@ -12,17 +12,15 @@ import cloud_big from "../../../img/icon/cloud 1.svg";
 import cloud_small from "../../../img/icon/cloud 2.svg";
 import saly14 from "../../../img/Saly-14.png";
 import saly15 from "../../../img/Saly-15.png";
-import saly17 from "../../../img/Saly-17.png";
-import hotel1 from "../../../img/icon/hotel.svg";
-import hotel2 from "../../../img/icon/hotel2.svg";
-import hotel3 from "../../../img/icon/hotel3.svg";
-import hotel4 from "../../../img/icon/hotel4.svg";
+import hotel1 from "../../../img/icon/hotel.png";
+import hotel2 from "../../../img/icon/hotel2.png";
+import hotel3 from "../../../img/icon/hotel3.png";
+import hotel4 from "../../../img/icon/hotel4.png";
 import bike from "../../../img/bike.png";
 import bus from "../../../img/bus.png";
 import boat from "../../../img/boat.png";
 
 const HomePage = props => {
-  const [data, setData] = useState(null);
   const dispatch = useDispatch();
   const homepageData = useSelector(state => state.homepageData);
 
