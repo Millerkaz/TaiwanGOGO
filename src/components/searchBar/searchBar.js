@@ -40,16 +40,15 @@ const SearchBar = props => {
                 setTerm(e.target.value);
               }}
             />
-            <div class="custom-select">
-              <select
-                value={type}
-                onChange={e => {
-                  setType(e.target.value);
-                }}
-              >
-                <option value="spot">景點</option>
-              </select>
-            </div>
+
+            <select
+              value={type}
+              onChange={e => {
+                setType(e.target.value);
+              }}
+            >
+              <option value="spot">景點</option>
+            </select>
 
             <select
               value={city}
@@ -106,16 +105,15 @@ const SearchBar = props => {
                 setTerm(e.target.value);
               }}
             />
-            <div class="custom-select">
-              <select
-                value={type}
-                onChange={e => {
-                  setType(e.target.value);
-                }}
-              >
-                <option value="activity">活動</option>
-              </select>
-            </div>
+
+            <select
+              value={type}
+              onChange={e => {
+                setType(e.target.value);
+              }}
+            >
+              <option value="activity">活動</option>
+            </select>
 
             <select
               value={city}
@@ -172,16 +170,15 @@ const SearchBar = props => {
                 setTerm(e.target.value);
               }}
             />
-            <div class="custom-select">
-              <select
-                value={type}
-                onChange={e => {
-                  setType(e.target.value);
-                }}
-              >
-                <option value="restaurant">餐廳</option>
-              </select>
-            </div>
+
+            <select
+              value={type}
+              onChange={e => {
+                setType(e.target.value);
+              }}
+            >
+              <option value="restaurant">餐廳</option>
+            </select>
 
             <select
               value={city}
