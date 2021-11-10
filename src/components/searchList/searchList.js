@@ -22,7 +22,7 @@ const renderList = (dataObj, hash = null, type = "spot") => {
   let dataArray = hash ? dataObj[hash.page] : dataObj;
 
   return dataArray.map(spotObj => {
-    return <ListSmallCard type={type} key={spotObj.ID} id={spotObj.ID} title={spotObj.Name} location={spotObj.City} url={spotObj.Picture.PictureUrl1} alt={spotObj.Picture.PictureDescription1} address={spotObj.Address?.slice(0, 3)} hash={hash || { city: "all", term: "all", page: 1 }} />;
+    return <ListSmallCard type={type} key={spotObj.ID} id={spotObj.ID} title={spotObj.Name} location={spotObj.City} url={spotObj.Picture.PictureUrl1} alt={spotObj.Picture.PictureDescription1} address={spotObj.Address?.slice(0, 3)} hash={hash || { city: "all", term: "all", page: 1 }} organizer={spotObj.Organizer} />;
   });
 };
 

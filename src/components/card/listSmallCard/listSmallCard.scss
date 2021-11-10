@@ -6,7 +6,7 @@
   width: 35.4rem;
   height: 35.4rem;
   padding: 2rem;
-  transition: all 0.1s;
+  transition: all 0.5s;
 
   display: flex;
   align-items: center;
@@ -63,11 +63,30 @@
     font-size: 1.8rem;
     line-height: 2.5rem;
     text-align: center;
-
+    transition: all 0.5s;
     color: #e56f47;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      transition: all 0.2s;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 2px;
+      background-color: #e56f47;
+      margin-top: 0.5rem;
+      width: 0%;
+    }
   }
 
   &:hover {
-    background-color: rgba(grey, 0.1);
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+  &:hover &__more::after {
+    width: 25%;
   }
 }
