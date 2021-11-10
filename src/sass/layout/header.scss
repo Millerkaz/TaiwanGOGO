@@ -1,3 +1,5 @@
+@import "../variable.scss";
+
 .header {
   width: 120rem;
   background: #ffffff;
@@ -9,11 +11,29 @@
   transform: translate(-50%);
   position: fixed;
   display: flex;
+  flex-wrap: wrap;
   z-index: 100000;
+
+  @media only screen and (max-width: $rwd-large) {
+    width: 100rem;
+  }
+
+  @media only screen and (max-width: $rwd-medium) {
+    width: 75rem;
+    justify-content: center;
+  }
+
+  @media only screen and (max-width: $rwd-small) {
+    width: 50rem;
+  }
 
   &__logo {
     display: inline-block;
     margin: 2.2rem auto 2.8rem 3.1rem;
+
+    @media only screen and (max-width: $rwd-medium) {
+      margin: 2.2rem 0 2.8rem 0;
+    }
 
     &:hover {
       cursor: pointer;
@@ -28,9 +48,28 @@
     display: flex;
     align-items: center;
 
+    @media only screen and (max-width: $rwd-large) {
+    }
+
+    @media only screen and (max-width: $rwd-medium) {
+      margin-bottom: 2rem;
+    }
+
+    @media only screen and (max-width: $rwd-small) {
+      flex: 0 1 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     li {
       margin: 1.6rem 1rem;
       width: 12rem;
+
+      @media only screen and (max-width: $rwd-small) {
+        flex: 0 1 25%;
+
+        flex-wrap: wrap;
+      }
 
       &:last-child {
         margin-right: 1.8rem;

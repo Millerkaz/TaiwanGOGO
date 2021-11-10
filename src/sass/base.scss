@@ -1,3 +1,5 @@
+@import "./variable.scss";
+
 *::before,
 *,
 *::after {
@@ -25,6 +27,22 @@ svg {
 
 html {
   font-size: 62.5%;
+
+  @media only screen and (max-width: $rwd-large) {
+    font-size: 50%;
+  }
+
+  @media only screen and (max-width: $rwd-medium) {
+    font-size: 45%;
+  }
+
+  @media only screen and (max-width: $rwd-small) {
+    font-size: 40%;
+  }
+
+  @media only screen and (max-width: $rwd-smallest) {
+    font-size: 30%;
+  }
 }
 
 body {
