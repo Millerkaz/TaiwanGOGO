@@ -18,7 +18,11 @@ $color-font-main: #291109;
     justify-content: space-around;
 
     &--Bar {
-      flex: 0 1 5%;
+      flex: 1 1 5%;
+
+      button {
+        margin: 1rem auto 2.98rem auto;
+      }
     }
 
     &--List {
