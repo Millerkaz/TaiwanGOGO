@@ -20,7 +20,7 @@ const ActivityDetail = props => {
     };
 
     fetchData();
-  }, []);
+  }, [props.match.params.id]);
 
   return (
     <React.Fragment>
