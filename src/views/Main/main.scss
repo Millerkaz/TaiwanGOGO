@@ -77,7 +77,16 @@ $color-font-main: #291109;
     position: relative;
     // overflow: hidden;
     padding-top: 28.54rem;
-    text-align: center;
+    display: grid;
+    justify-items: center;
+
+    &--spot,
+    &--activity,
+    &--restaurant,
+    &--hotel,
+    &--local {
+      width: 100%;
+    }
 
     @media only screen and (max-width: $rwd-medium) {
       padding-top: 35rem;
@@ -262,7 +271,7 @@ $color-font-main: #291109;
       color: $color-font-main;
       font-size: 3.4rem;
       font-weight: 400;
-      margin: 32rem auto 6.2rem auto;
+      margin: 32rem 0 6.2rem 0;
     }
 
     button {
@@ -274,6 +283,7 @@ $color-font-main: #291109;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(27.8rem, 1fr));
       grid-gap: 2.8rem;
+      text-align: center;
 
       // display: flex;
       // justify-content: space-evenly;
@@ -307,6 +317,7 @@ $color-font-main: #291109;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
       grid-gap: 2.8rem;
+      text-align: center;
 
       &-card {
         justify-self: center;
