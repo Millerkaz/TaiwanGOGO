@@ -27,12 +27,27 @@ $color-font-main: #291109;
     display: flex;
     justify-content: space-around;
 
+    @media only screen and (max-width: $rwd-large) {
+      flex-flow: column;
+    }
+
     &--Bar {
       margin-right: 5rem;
       flex: 1 1 5%;
 
+      @media only screen and (max-width: $rwd-large) {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        order: 2;
+      }
+
       button {
         margin: 1rem auto 2.98rem auto;
+
+        @media only screen and (max-width: $rwd-large) {
+          margin: 2rem;
+        }
       }
     }
 
@@ -171,16 +186,8 @@ $color-font-main: #291109;
       }
 
       @media only screen and (max-width: $rwd-large) {
-        width: 40rem;
-      }
-
-      @media only screen and (max-width: $rwd-medium) {
         margin: 5rem 0;
-        width: 50rem;
-      }
-
-      @media only screen and (max-width: $rwd-small) {
-        width: 30rem;
+        width: 100%;
       }
     }
   }

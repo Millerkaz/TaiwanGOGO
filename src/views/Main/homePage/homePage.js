@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { action } from "../../../store";
 import { historyPush } from "../../../helper";
+import BgImg from "./bgImg/bgImg";
 
 import SearchBar from "../../../components/searchBar/searchBar";
 import SearchList from "../../../components/searchList/searchList";
@@ -12,13 +13,13 @@ import cloud_big from "../../../img/icon/cloud 1.png";
 import cloud_small from "../../../img/icon/cloud 2.png";
 import saly14 from "../../../img/Saly-14.png";
 import saly15 from "../../../img/Saly-15.png";
+import boat from "../../../img/boat.png";
 import hotel1 from "../../../img/icon/hotel.png";
 import hotel2 from "../../../img/icon/hotel2.png";
 import hotel3 from "../../../img/icon/hotel3.png";
 import hotel4 from "../../../img/icon/hotel4.png";
 import bike from "../../../img/bike.png";
 import bus from "../../../img/bus.png";
-import boat from "../../../img/boat.png";
 
 const HomePage = props => {
   const dispatch = useDispatch();
@@ -39,18 +40,7 @@ const HomePage = props => {
 
   return (
     <div className="main__homePage">
-      <img src={cloud_big} className="main__homePage-cloud main__homePage-cloud--B_top" />
-      <img src={cloud_small} className="main__homePage-cloud main__homePage-cloud--S_top" />
-      <img src={cloud_big} className="main__homePage-cloud main__homePage-cloud--B_2nd" />
-      <img src={cloud_small} className="main__homePage-cloud main__homePage-cloud--S_2nd" />
-      <img src={cloud_small} className="main__homePage-cloud main__homePage-cloud--S_mid" />
-      <img src={cloud_big} className="main__homePage-cloud main__homePage-cloud--B_3rd" />
-      <img src={cloud_small} className="main__homePage-cloud main__homePage-cloud--S_3rd" />
-      <img src={cloud_big} className="main__homePage-cloud main__homePage-cloud--B_last-L" />
-      <img src={cloud_big} className="main__homePage-cloud main__homePage-cloud--B_last-R" />
-      <img src={saly14} className="main__homePage-bookman" />
-      <img src={saly15} className="main__homePage-flagman" />
-      <img src={boat} className="main__homePage-boat" />
+      <BgImg />
       <img src={title_img} alt="title" className="main__homePage--title" />
       <h3>好回憶，來自好旅程</h3>
       <SearchBar className="searchBar--homepage" />
