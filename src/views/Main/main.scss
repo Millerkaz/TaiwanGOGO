@@ -1,5 +1,15 @@
 $color-font-main: #291109;
 
+@keyframes cloudAppear {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
 .main {
   &__errorImg {
     margin-top: 10rem;
@@ -63,6 +73,8 @@ $color-font-main: #291109;
     &-cloud {
       position: absolute;
       z-index: -1;
+      animation: cloudAppear 1s;
+      transition: transform 1s;
 
       &--B_top {
         width: 65.1rem;
@@ -81,7 +93,7 @@ $color-font-main: #291109;
       &--B_2nd {
         width: 54.6rem;
         height: 32.2rem;
-        transform: rotateY(180deg);
+
         top: 198%;
         right: -10%;
       }
@@ -117,7 +129,7 @@ $color-font-main: #291109;
       &--B_last-L {
         width: 53.1rem;
         height: 31.3rem;
-        transform: rotateY(180deg);
+
         top: 520%;
         left: -10%;
       }

@@ -46,7 +46,7 @@ const ListSmallCard = props => {
       <p className="listSmallCard__title">{props.title}</p>
       <div className="listSmallCard__icon">
         <img src={marker_icon} />
-        <span>{props.location || props.address}</span>
+        <span>{props.location || props.address || props.organizer}</span>
       </div>
       <p className="listSmallCard__more">了解更多</p>
     </div>
