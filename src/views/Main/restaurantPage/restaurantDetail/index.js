@@ -22,7 +22,7 @@ const SpotDetail = props => {
     };
 
     fetchData();
-  }, []);
+  }, [props.match.params.id]);
 
   return (
     <React.Fragment>
