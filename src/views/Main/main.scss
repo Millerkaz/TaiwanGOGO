@@ -258,11 +258,11 @@ $color-font-main: #291109;
     }
 
     h2 {
+      display: inline-block;
       color: $color-font-main;
       font-size: 3.4rem;
       font-weight: 400;
-      margin-top: 32rem;
-      margin-bottom: 6.2rem;
+      margin: 32rem auto 6.2rem auto;
     }
 
     button {
