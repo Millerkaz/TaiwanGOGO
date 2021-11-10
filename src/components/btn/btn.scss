@@ -1,4 +1,5 @@
 /* linkBtn & btn */
+@import "../../sass/variable.scss";
 
 .btn {
   display: block;
@@ -36,6 +37,10 @@
   width: 20rem;
   padding: 1.5rem;
 
+  @media only screen and (max-width: $rwd-smallest) {
+    width: 25rem;
+  }
+
   &:visited {
     color: #ffffff;
   }
@@ -50,6 +55,10 @@
 .btn--nav {
   padding: 1rem 2rem;
   width: 12rem;
+
+  @media only screen and (max-width: $rwd-smallest) {
+    width: 100%;
+  }
 }
 
 .btn--detailCard {

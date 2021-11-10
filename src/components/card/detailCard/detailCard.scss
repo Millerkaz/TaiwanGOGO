@@ -15,7 +15,7 @@ $color-font-main: #291109;
   }
 
   @media only screen and (max-width: $rwd-small) {
-    margin-top: 40rem;
+    margin: 40rem 0 10rem 0;
   }
 
   &__background {
@@ -53,13 +53,12 @@ $color-font-main: #291109;
 
     &--List {
       max-width: 120rem;
-      height: 60rem;
+
       position: relative;
       border-radius: 4rem;
       overflow: hidden;
 
       @media only screen and (max-width: $rwd-small) {
-        height: 40rem;
       }
     }
 
@@ -122,6 +121,12 @@ $color-font-main: #291109;
     @media only screen and (max-width: $rwd-medium) {
       grid-template-columns: 1fr;
       grid-template-rows: 1fr;
+    }
+
+    &--link {
+      @media only screen and (max-width: $rwd-medium) {
+        justify-content: space-between !important;
+      }
     }
 
     &--left {

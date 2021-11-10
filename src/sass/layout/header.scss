@@ -75,6 +75,12 @@
         flex-wrap: wrap;
       }
 
+      @media only screen and (max-width: $rwd-smallest) {
+        flex: 0 1 28%;
+
+        flex-wrap: wrap;
+      }
+
       &:last-child {
         margin-right: 1.8rem;
       }
