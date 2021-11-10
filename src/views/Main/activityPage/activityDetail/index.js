@@ -26,7 +26,7 @@ const ActivityDetail = props => {
     <React.Fragment>
       <img src={cloud_big} className="main__detail--cloudBig" />
       <img src={cloud_small} className="main__detail--cloudSmall" />
-      <DetailCard data={data} backPath={`/activity/${city}/${term}/${page}`} />
+      <DetailCard type="activity" data={data} backPath={`/activity/${city}/${term}/${page}`} />
     </React.Fragment>
   );
 };

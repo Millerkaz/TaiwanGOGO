@@ -9,9 +9,29 @@ import clock_icon from "../../../img/icon/Clock.png";
 import info_icon from "../../../img/icon/Info.png";
 import dollar_icon from "../../../img/icon/US Dollar.png";
 import spot404_img from "../../../img/spotImg404.png";
+import activity404_img from "../../../img/activity404.png";
+import restaurant_img from "../../../img/restaurant404.png";
 
 import SearchList from "../../searchList/searchList";
 import { historyPush } from "../../../helper";
+
+const showErrorImg = function (props, e = null) {
+  if (e === null) {
+    e = { target: { src: null } };
+  }
+
+  switch (props.type) {
+    case "activity":
+      e.target.src = activity404_img;
+      return activity404_img;
+    case "restaurant":
+      e.target.src = restaurant_img;
+      return restaurant_img;
+    default:
+      e.target.src = spot404_img;
+      return spot404_img;
+  }
+};
 
 const imgBtnClickHandler = e => {
   const imgs = document.querySelectorAll(".detailCard__imgShow--each");
@@ -27,7 +47,7 @@ const imgBtnClickHandler = e => {
   e.target.classList.add("btn--active");
 };
 
-const renderDetail = (data, nearData) => {
+const renderDetail = (data, nearData, props) => {
   if (!nearData) return;
   let imgCount = Object.keys(data.Picture).length;
   let imgArray = [];
@@ -62,7 +82,7 @@ const renderDetail = (data, nearData) => {
           <div className="detailCard__imgShow--List">
             {imgArray.map((imgObj, i) => (
               <div className={`detailCard__imgShow--each detailCard__imgShow--${i + 1} ${i + 1 !== 1 ? "img--hidden" : ""}`}>
-                <img onError={e => (e.target.src = spot404_img)} src={imgObj.url ? imgObj.url : spot404_img} alt={imgObj.alt} />
+                <img onError={e => showErrorImg(props, e)} src={imgObj.url ? imgObj.url : showErrorImg(props)} alt={imgObj.alt} />
               </div>
             ))}
           </div>
@@ -213,7 +233,7 @@ const DetailCard = props => {
       fetchData();
     }
   }, [props.data]);
-  return <React.Fragment>{props.data ? renderDetail(props.data, nearTargetData) : <div></div>}</React.Fragment>;
+  return <React.Fragment>{props.data ? renderDetail(props.data, nearTargetData, props) : <div></div>}</React.Fragment>;
 };
 
 export default DetailCard;

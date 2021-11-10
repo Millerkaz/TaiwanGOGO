@@ -29,7 +29,7 @@ const SpotDetail = props => {
       <img src={cloud_big} className="main__detail--cloudBig" />
       <img src={cloud_small} className="main__detail--cloudSmall" />
       {/* //! */}
-      <DetailCard data={data} backPath={`/restaurant/${city}/${term}/${page}`} />
+      <DetailCard type="restaurant" data={data} backPath={`/restaurant/${city}/${term}/${page}`} />
     </React.Fragment>
   );
 };
