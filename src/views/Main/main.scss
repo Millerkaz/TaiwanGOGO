@@ -110,13 +110,18 @@ $color-font-main: #291109;
         height: 38.4rem;
         top: 9%;
         left: 0%;
+
+        @media only screen and (max-width: $rwd-small) {
+          transform: scale(0.5);
+          top: 10%;
+        }
       }
 
       &--S_top {
         width: 26.1rem;
         height: 15.4rem;
         top: 2.5%;
-        right: 0%;
+        right: 10%;
       }
 
       &--B_2nd {
@@ -138,6 +143,10 @@ $color-font-main: #291109;
         height: 17.9rem;
         top: 48%;
         left: 67%;
+
+        @media only screen and (max-width: $rwd-small) {
+          left: 50%;
+        }
       }
 
       &--B_3rd {
@@ -160,6 +169,11 @@ $color-font-main: #291109;
 
         top: 84%;
         left: 0%;
+
+        @media only screen and (max-width: $rwd-small) {
+          transform: scale(0.5);
+          top: 85%;
+        }
       }
 
       &--B_last-R {
@@ -167,6 +181,11 @@ $color-font-main: #291109;
         height: 31.5rem;
         top: 94%;
         right: 0%;
+
+        @media only screen and (max-width: $rwd-small) {
+          transform: scale(0.5);
+          top: 97%;
+        }
       }
     }
 
@@ -179,8 +198,12 @@ $color-font-main: #291109;
       top: 49%;
       left: 5%;
 
+      @media only screen and (max-width: $rwd-small) {
+        transform: rotateZ(0deg) scale(0.7);
+      }
+
       @media only screen and (max-width: $rwd-smallest) {
-        transform: rotateZ(-5deg) scale(0.7);
+        transform: rotateZ(-5deg) scale(0);
       }
     }
 
@@ -193,10 +216,13 @@ $color-font-main: #291109;
       top: 6%;
       right: 10%;
 
-      @media only screen and (max-width: $rwd-smallest) {
-        transform: rotateZ(15deg) scale(0.7);
+      @media only screen and (max-width: $rwd-small) {
+        transform: rotateZ(10deg) scale(0.7);
         top: 7.5%;
-        right: 8%;
+        right: 10%;
+      }
+
+      @media only screen and (max-width: $rwd-smallest) {
       }
     }
 
@@ -208,8 +234,8 @@ $color-font-main: #291109;
       right: 0%;
 
       @media only screen and (max-width: $rwd-small) {
-        top: 85%;
-        transform: scale(0.8);
+        top: 88%;
+        transform: scale(0.6);
       }
 
       @media only screen and (max-width: $rwd-smallest) {
