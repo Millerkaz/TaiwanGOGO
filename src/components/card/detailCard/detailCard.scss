@@ -53,13 +53,12 @@ $color-font-main: #291109;
 
     &--List {
       max-width: 120rem;
-      height: 60rem;
+
       position: relative;
       border-radius: 4rem;
       overflow: hidden;
 
       @media only screen and (max-width: $rwd-small) {
-        height: 40rem;
       }
     }
 
