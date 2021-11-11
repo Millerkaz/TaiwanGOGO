@@ -15,7 +15,22 @@ $color-font-main: #291109;
 .main {
   &__errorImg {
     margin-top: 10rem;
-    margin-left: 70rem;
+    width: 50rem;
+
+    @media only screen and (max-width: $rwd-large) {
+      margin-top: 0rem;
+    }
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      transform: translateX(8%);
+    }
+  }
+
+  &__searchList {
+    // grid-template-columns: 1fr !important;
   }
 
   &__spotPage {

@@ -33,7 +33,7 @@ $color-font-main: #291109;
 
     &--Bar {
       margin-right: 5rem;
-      flex: 1 1 5%;
+      flex: 0 1 5%;
 
       @media only screen and (max-width: $rwd-large) {
         display: flex;
@@ -52,7 +52,7 @@ $color-font-main: #291109;
     }
 
     &--List {
-      max-width: 120rem;
+      flex: 1;
 
       position: relative;
       border-radius: 4rem;
