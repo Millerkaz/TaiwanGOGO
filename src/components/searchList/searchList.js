@@ -12,10 +12,9 @@ const renderList = (dataObj, hash = null, type = "spot") => {
 
   if (Object.keys(dataObj).length === 0) {
     return (
-      <React.Fragment>
-        <img src={noData_img} alt={`No data`} className="main__errorImg" />
-        <p></p>
-      </React.Fragment>
+      <div className="main__errorImg">
+        <img src={noData_img} alt={`No data`} />
+      </div>
     );
   }
 
