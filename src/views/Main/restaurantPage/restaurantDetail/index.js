@@ -16,7 +16,7 @@ const SpotDetail = props => {
     dispatch(action.popWindowShowCreator(null));
     const fetchData = async () => {
       //!
-      const response = await PTX.get(`/v2/Tourism/Restaurant?$filter=ID%20eq%20'${props.match.params.id}'&$format=JSON`);
+      const response = await PTX.get(`/v2/Tourism/Restaurant?$filter=RestaurantID%20eq%20'${props.match.params.id}'&$format=JSON`);
 
       setData(response.data[0]);
     };

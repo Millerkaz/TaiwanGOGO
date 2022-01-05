@@ -14,7 +14,7 @@ const ActivityDetail = props => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await PTX.get(`/v2/Tourism/activity?$filter=ID%20eq%20'${props.match.params.id}'&$format=JSON`);
+      const response = await PTX.get(`/v2/Tourism/activity?$filter=ActivityID%20eq%20'${props.match.params.id}'&$format=JSON`);
 
       setData(response.data[0]);
     };
