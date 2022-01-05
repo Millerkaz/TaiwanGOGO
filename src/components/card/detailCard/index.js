@@ -161,7 +161,7 @@ const renderDetail = (data, nearData, props) => {
             </div>
           </div>
 
-          <LeafletMap className="detailCard__iconGrid--map" name={data.Name} location={{ lat: data.Position.PositionLat, lon: data.Position.PositionLon }} />
+          <LeafletMap className="detailCard__iconGrid--map" name={data.ScenicSpotName || data.ActivityName || data.RestaurantName} location={{ lat: data.Position.PositionLat, lon: data.Position.PositionLon }} />
         </div>
 
         <div className="detailCard__description">
