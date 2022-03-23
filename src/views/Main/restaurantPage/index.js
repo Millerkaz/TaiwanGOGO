@@ -21,7 +21,7 @@ const SpotPage = props => {
 
       if (city === "all") {
         //!
-        const response = await PTX.get(`/v2/Tourism/Restaurant?${term === "all" ? "" : `$filter=contains(Name,'${term}')`}`, {
+        const response = await PTX.get(`/v2/Tourism/Restaurant?${term === "all" ? "" : `$filter=contains(RestaurantName,'${term}')`}`, {
           params: {
             $format: "JSON",
             $top: 100,
@@ -40,7 +40,7 @@ const SpotPage = props => {
 
       if (city !== "all") {
         //!
-        const response = await PTX.get(`/v2/Tourism/Restaurant?${term === "all" ? `$filter=contains(city,'${city}') or contains(Address,'${city}')` : `$filter=contains(Name,'${term}') and (contains(city,'${city}') or contains(Address,'${city}'))`}`, {
+        const response = await PTX.get(`/v2/Tourism/Restaurant?${term === "all" ? `$filter=contains(city,'${city}') or contains(Address,'${city}')` : `$filter=contains(RestaurantName,'${term}') and (contains(city,'${city}') or contains(Address,'${city}'))`}`, {
           params: {
             $format: "JSON",
           },

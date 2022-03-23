@@ -20,7 +20,7 @@ const ActivityPage = props => {
       const FORM_SEARCH_SUBMIT = "FORM_SEARCH_SUBMIT";
 
       if (city === "all") {
-        const response = await PTX.get(`/v2/Tourism/Activity?${term === "all" ? "" : `$filter=contains(Name,'${term}')`}`, {
+        const response = await PTX.get(`/v2/Tourism/Activity?${term === "all" ? "" : `$filter=contains(ActivityName,'${term}')`}`, {
           params: {
             $format: "JSON",
             $top: 100,
@@ -38,7 +38,7 @@ const ActivityPage = props => {
       }
 
       if (city !== "all") {
-        const response = await PTX.get(`/v2/Tourism/Activity?${term === "all" ? `$filter=contains(city,'${city}') or contains(Address,'${city}')` : `$filter=contains(Name,'${term}') and (contains(city,'${city}') or contains(Address,'${city}'))`}`, {
+        const response = await PTX.get(`/v2/Tourism/Activity?${term === "all" ? `$filter=contains(city,'${city}') or contains(Address,'${city}')` : `$filter=contains(ActivityName,'${term}') and (contains(city,'${city}') or contains(Address,'${city}'))`}`, {
           params: {
             $format: "JSON",
           },
